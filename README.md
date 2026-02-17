@@ -5,6 +5,6 @@ PRESENTIE: if someone doesn't shows up, public execution.
 
 marco goal: the shopping cart, and optimization.
 
-lukas goal: rewrite the entire code for some reason.
+lukas goal: rewrite the entire code so its cleaner and more accessible.
 
 enrico goal: plants function.
