@@ -7,7 +7,7 @@ marco goal: do every task as precise and as polish as posible, keep showing up, 
 
 lukas goal: rewrite the entire code so its cleaner and more accessible.
 
-enrico goal: plants function.
+enrico goal: show up more and commit more to the project.
 
 sick plan: if someone sick->Discord
 comunication->discord
