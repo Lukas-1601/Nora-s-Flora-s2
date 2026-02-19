@@ -9,6 +9,7 @@ lukas goal: rewrite the entire code so its cleaner and more accessible.
 
 enrico goal: show up more and commit more to the project.
 
-sick plan: if someone sick->Discord
+special event plan: 
+if someone sick->Discord
 comunication->discord
 task divition->discord
