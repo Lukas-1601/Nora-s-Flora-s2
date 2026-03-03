@@ -1,12 +1,13 @@
 * {
   text-decoration: none;
+  font-family: Arial, sans-serif;
 }
 
 html {
     text-align: center;
 }
 
-.header-Home-Page {
+header {
   background-color: #3c643c;
   padding: 10px;
   position: center;
@@ -14,7 +15,7 @@ html {
   margin: 0 auto;
 }
 
-.nav-Home-Page{
+nav{
   background-color: #024f02;
   text-align: center;
   padding: 5px;
@@ -115,7 +116,6 @@ nav a{
 }
 
 .flower-gallery img {
-
   width: 200px;
   height: 175px;
   object-fit: cover;
@@ -187,8 +187,7 @@ footer {
   width: 100%;
   background-color: #2f4f36;
   color: #fff;
-  padding: 12px 20px 8px;
-  font-family: Arial, sans-serif;
+  padding: 0 0 8px;
   text-align: center;
   z-index: 1000;
 }
@@ -196,6 +195,7 @@ footer {
 .footer-container {
   max-width: 500px;
   margin: 0 auto;
+  padding: 10px 0 0 0;
   display: flex;
   justify-content: space-between;
   gap: 100px;
@@ -234,33 +234,8 @@ footer {
   }
 }
 
-
-
-.header-Assortiment {
-  background-color: #3c643c;
-  padding: 10px;
-  position: center;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.nav-Assortiment{
-  background-color: #024f02;
-  text-align: center;
-  padding: 5px;
-  position: center;
-  width: 110%;
-  margin: -10px auto;   
-  margin-left: -80px;
-  margin-top: -10px;
-  margin-bottom: 50px;
-}
-
 .Assortiment-body {
-  display: grid;
   background-color: #f0f8f0;
-  font-family: Arial, sans-serif;
-  background-position: center 80px;
   margin: 0;
   padding: 0;
 }
@@ -268,32 +243,10 @@ footer {
 .flower-gallery-Assortiment {
   display: grid;
   grid-template-columns: repeat(4, 3fr);
-  padding: 10px 5px;
   width: 45%;
-  max-height: 100%;
-  margin: 0 auto 0 auto;
+  max-height: 400px;
+  margin: 0 auto;
   background-color: white;
-}
-
-.flower-gallery-Assortiment_1 {
-  display: grid;
-  grid-template-columns: repeat(4, 3fr);
-  gap: 5px;
-  margin-left: 10px;
-}
-
-.flower-gallery-Assortiment_2 {
-  display: grid;
-  grid-template-columns: repeat(4, 3fr);
-  margin-top: 150px;
-  margin-left: -657px;
-}
-
-.flower-gallery-Assortiment_3 {
-  display: grid;
-  grid-template-columns: repeat(4, 3fr);
-  margin-top: -150px;
-  margin-left: -320px;
 }
 
 .flower-gallery-Assortiment img{
@@ -363,50 +316,6 @@ footer {
     z-index: 999;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #2f4f36;
-  color: #fff;
-  padding: 12px 20px 8px;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  z-index: 1000;
-}
-
-.footer-container-Assortiment {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  gap: 100px;
-  align-items: flex-start;
-}
-
-.footer-left-Assortiment p{
-  text-align: left;
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.4;
-  color: #eef6ea;
-}
-
-.footer-right-Assortiment p {
-  text-align: right;
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.4;
-  color: #eef6ea;
-}
-
-.footer-right-Assortiment h4 {
-  margin: 0 0 8px 0;
-  font-size: 12px;
-  color: #ffffff;
-}
-
 @media (max-width: 700px) {
   .footer-container {
     flex-direction: column;
@@ -418,83 +327,16 @@ footer {
   }
 }
 
-
-.header-Contact {
-  background-color: #3c643c;
-  padding: 10px;
-  position: center;
-  width: 100%;
-  margin: 10 auto;
-  margin-left: -10px;
-  margin-top: -10px;
-}
-
-.nav-Contact-Page{
-  background-color: #024f02;
-  text-align: center;
-  padding: 5px;
-  position: center;
-  width: 100%;
-  margin: 0 auto;   
-}
-
 .body-Contact {
+  display: grid;
   background-color: rgb(76, 121, 70);
   color: white;
-  font-family: sans-serif;
-  background-position: center 80px;
   margin: 0;
   padding: 0;
 }
 
-.intro-section {
-  text-align: left;
-  margin-left: 150px;
-  max-width: 500px;
-}
-
-#h1 {
-  text-align: center;
-  font-size: 30px;
-}
-
-#Intro-Info {
-  text-align: left;
-  margin-top: 100px;
-  margin-left: 150px;
-  max-width: 500px;
-}
-
-.Mr_Kirk {
-  position: right;
-  margin-top: -275px;
-  margin-left: -100px;
-}
-
-#message {
-  margin-left: 750px;
-  margin-top: 20px;
-  border-radius: 10px;
-  height: 200px;
-  width: 400px;
-}
-
-#email {
-  margin-left: 750px;
-  margin-bottom: -15px;
-  border-radius: 5px;
-  margin-top: 20px;
-  width: 400px;
-  height: 30px;
-}
-
-#verzenden {
-  margin-left: 750px;
-  margin-top: 20px;
-  height: 30px;
-  width: 300px;
-  border-radius: 60px;
-  background-color: #d7ecac;
+article {
+  display: flex;
 }
 
 .Random-Line_1 {
@@ -509,9 +351,8 @@ footer {
     width: 100%;
     height: 30px;
     background-color: #d7ecac;
-    margin-bottom: 0px;
-    margin-left: -20px;
-    margin-top: -12px;
+    margin: 0;
+    padding: 0;
     position: relative;
     z-index: 999;
 }
@@ -520,61 +361,6 @@ footer {
   background-color: #488048;
   width: 100%;
   height: 40px;
-  margin-left: -20px;
-  margin-bottom: 40px;
   position: relative;
   z-index: 999;
 }
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #2f4f36;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  z-index: 1000;
-}
-
-.footer-container-Contact {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  gap: 100px;
-  align-items: flex-start;
-}
-
-.footer-left-Contact p{
-  text-align: left;
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.4;
-  color: #eef6ea;
-  margin-bottom: 10px;
-}
-
-.footer-right-Contact p {
-  text-align: right;
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.4;
-  color: #eef6ea;
-  margin-bottom: 10px;
-}
-
-.footer-right-Contact h4 {
-  margin: 0 0 8px 0;
-  font-size: 12px;
-  color: #ffffff;
-}
-
-
-.index-container{max-width:900px;margin:48px auto;padding:16px;text-align:left}
-		.site-list{display:grid;gap:12px}
-		.site-card{display:flex;align-items:center;gap:12px;padding:12px;border-radius:8px;background:#f6f6f6}
-		.site-card img{width:96px;height:64px;object-fit:cover;border-radius:6px}
-		.site-card a{font-weight:700;color:#0b6b0b;text-decoration:none}
-		.site-card p{margin:4px 0;color:#333}
