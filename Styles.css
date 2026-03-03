@@ -25,48 +25,40 @@ nav{
 }
 
 nav a{
-    border-left: 2px solid white;
-    border-right: 2px solid white;
-    margin: 0 15px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 3px 6px;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 3px 6px;
 }
 
-.body-Home-Page {
-  background-image: url('Asset/Background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
 
 .welcome-message {
-    font-size: 20px;
-    color: white;
-    margin: 80px 0 20px 0;
-    text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
-}
-
-.welcome-message h1 {
-  font-size: 32px;
-  margin: 0 0 6px 0;
-  text-shadow: 8px 8px 20px rgba(0,0,0,0.7);
+  background-image: url('Asset/Background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .bloemetjes {
-  background-color: transparent;
   position: relative;
   padding: 10px 0 0 0;
-  margin: 10% 0 0 0;
   text-align: center;
   color: rgb(255, 255, 255);
   font-size: 24px;
-  font-weight: bold;
   width: 100%;
 }
 
@@ -234,86 +226,11 @@ footer {
   }
 }
 
-.Assortiment-body {
-  background-color: #f0f8f0;
-  margin: 0;
-  padding: 0;
-}
-
-.flower-gallery-Assortiment {
-  display: grid;
-  grid-template-columns: repeat(4, 3fr);
-  width: 45%;
-  max-height: 400px;
-  margin: 0 auto;
-  background-color: white;
-}
-
-.flower-gallery-Assortiment img{
-  width: 150px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  position: center;
-  padding: 5px;
-}
-
-.flower-card-Assortiment p {
-  margin: 2px;
-  font-size: 8px;
-  color: #333;
-  padding: 5px;
-  background-color: #c8e6c9;
-  border-radius: 4px;
-  max-width: 150px;
-  margin-left: 10px;
-}
-
-.flower-card-Assortiment-large img {
-  height: 250px;
-  width: 320px;
-  grid-column: span 2;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 5px;
-  margin-left: -403%;
-  margin-top: 150px;
-}
-
-.flower-card-Assortiment-large p {
-  margin: 2px;
-  font-size: 8px;
-  color: #333;
-  padding: 5px;
-  background-color: #c8e6c9;
-  border-radius: 4px;
-  max-width: 320px;
-  margin-left: -665px;
-}
-
-@media (max-width: 900px) {
-  .Assortiment-body {
-    grid-template-columns: repeat(4, 3fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .Assortiment-body {
-    grid-template-columns: repeat(4, 3fr);
-  }
-}
-
 .Random-Line {
     width: 100%;
     height: 40px;
     background-color: #3c643c;
-    margin-bottom: 10px;
-    margin-left: -20px;
-    margin-top: -12px;
     position: relative;
-    z-index: 999;
 }
 
 @media (max-width: 700px) {
@@ -327,34 +244,88 @@ footer {
   }
 }
 
-.body-Contact {
+article {
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(76, 121, 70);
   color: white;
-  margin: 0;
-  padding: 0;
+  padding: 22px;
+  width: 100%;
+}  
+
+.contact-top {
+  font-size: 20px;
+  margin-bottom: -20px;
+  grid-column: 1 / -1;
+  text-align: center;
+}  
+
+.contact-left {
+  display: grid;
+  grid-template-rows: 2.2fr 1fr;
+  text-align: left;
+  max-width: 100%;
+  width: 500px;
+  font-size: 18px;
+  grid-column: 1;
+  margin-left: 250px;
+}  
+
+.contact-right {
+  text-align: center;
+  grid-column: 2;
+  margin-left: 50px;
 }
 
-article {
-  display: flex;
+textarea {
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  color: #333;
+  font-size: 14px;
+}
+
+input {
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button {
+  background-color: #d7ecac;
+  width: 250px;
+  border-radius: 20px;
+  color: black;
+  border: 1px solid black;
+  padding: 5px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .Random-Line_1 {
   background-color: #d7ecac;
   width: 100%;
   height: 30px;
+  padding: 0 8px 0 0;
   position: relative;
-  z-index: 999;
 }
 
 .Random-Line_2 {
     width: 100%;
     height: 30px;
     background-color: #d7ecac;
-    margin: 0;
-    padding: 0;
     position: relative;
-    z-index: 999;
 }
 
 .Random-Line_3 {
@@ -362,5 +333,4 @@ article {
   width: 100%;
   height: 40px;
   position: relative;
-  z-index: 999;
 }
