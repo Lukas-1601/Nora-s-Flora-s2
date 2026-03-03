@@ -5,7 +5,7 @@ PRESENTIE: if someone doesn't shows up, public execution.
 
 Marco goal: do every task as precise and as polish as posible, keep showing up, better comunication, more sleep hours
 
-Lukas goal: rewrite the entire code so its cleaner and more accessible.
+Lukas goal: Do more work, keep showing up, also more sleep hours and find ways to clean up the code along the way.
 
 Enrico goal: show up more and commit more to the project.
 
