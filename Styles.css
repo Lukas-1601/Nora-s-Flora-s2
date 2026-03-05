@@ -188,11 +188,15 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: var(--background-color4);
   color: #fff;
   padding: 0 0 8px;
   text-align: center;
   z-index: 1000;
+}
+
+.footer-index {
+  height: 10vh;
+  background-color: var(--background-color4);
 }
 
 .footer-assortiment {
@@ -207,11 +211,16 @@ body {
 }
 
 .footer-contact {
-  height: 12vh;
+  margin: 0 auto;
+  height: 18vh;
   background: repeating-linear-gradient(
     to top,
     var(--background-color4),
-    var(--background-color1) 70%
+    var(--background-color4) 50%,
+    var(--background-color1) 50%,
+    var(--background-color1) 75%,
+    var(--background-color6) 75%,
+    var(--background-color6) 100%
   );
 }
 
@@ -227,7 +236,7 @@ body {
 
 .footer-left p {
   text-align: left;
-  margin: 25px 0 0 0;
+  margin: 0;
   font-size: 12px;
   line-height: 1.4;
   color: #eef6ea;
@@ -241,7 +250,7 @@ body {
 }
 
 .footer-right h4 {
-  margin: 25px 0 8px 0;
+  margin: 0 0 8px 0;
   font-size: 12px;
   color: #ffffff;
 }
