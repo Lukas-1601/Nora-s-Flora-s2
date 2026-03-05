@@ -8,7 +8,7 @@ class FlowerCollection {
   }
 }
 
-// populate the collection when the page is ready
+// kirk it up
 const flowerCollection = new FlowerCollection();
 
 document.addEventListener('DOMContentLoaded', () => {
