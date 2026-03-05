@@ -3,12 +3,23 @@
   font-family: Arial, sans-serif;
 }
 
+:root {
+  --background-color1: #3c643c;
+  --background-color2: #024f02;
+  --background-color3: #c8e6c9;
+  --background-color4: #2f4f36;
+  --background-color5: #4c7946;
+  --background-color6: #d7ecac;
+  --background-color7: #488048;
+  --background-white: white;
+}
+
 html {
     text-align: center;
 }
 
 header {
-  background-color: #3c643c;
+  background-color: var(--background-color1);
   padding: 10px;
   position: center;
   width: 100%;
@@ -16,7 +27,7 @@ header {
 }
 
 nav{
-  background-color: #024f02;
+  background-color: var(--background-color2);
   text-align: center;
   padding: 5px;
   position: center;
@@ -78,7 +89,7 @@ body {
   top: 1%;
   transform: translateY(0px);
   height: 50px;
-  background-color: #3c643c;
+  background-color: var(--background-color1);
   z-index: 0;
 }
 
@@ -90,7 +101,7 @@ body {
   width: 100%;
   margin: 10px auto 0 auto;
   margin: -10px auto 0 auto;
-  background-color: white;
+  background-color: var(--background-white);
   justify-content: flex-start;
   
 }
@@ -120,12 +131,12 @@ body {
   font-size: 20px;
   color: #333;
   padding: 20px;
-  background-color: #c8e6c9;
+  background-color: var(--background-color3);
   border-radius: 15px;
 }
 
 .uitleg-Nora {
-    background-color: #3c643c;
+    background-color: var(--background-color1);
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: -10px auto 20px auto;
@@ -172,16 +183,36 @@ body {
     flex: 1;
 }
 
-footer {
+.footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #2f4f36;
+  background-color: var(--background-color4);
   color: #fff;
   padding: 0 0 8px;
   text-align: center;
   z-index: 1000;
+}
+
+.footer-assortiment {
+  height: 12vh;
+  background: repeating-linear-gradient(
+    to top,
+    var(--background-color4),
+    var(--background-color4) 70%,
+    var(--background-color1) 70%,
+    var(--background-color1) 100%
+  );
+}
+
+.footer-contact {
+  height: 12vh;
+  background: repeating-linear-gradient(
+    to top,
+    var(--background-color4),
+    var(--background-color1) 70%
+  );
 }
 
 .footer-container {
@@ -196,7 +227,7 @@ footer {
 
 .footer-left p {
   text-align: left;
-  margin: 0;
+  margin: 25px 0 0 0;
   font-size: 12px;
   line-height: 1.4;
   color: #eef6ea;
@@ -210,7 +241,7 @@ footer {
 }
 
 .footer-right h4 {
-  margin: 0 0 8px 0;
+  margin: 25px 0 8px 0;
   font-size: 12px;
   color: #ffffff;
 }
@@ -226,13 +257,6 @@ footer {
   }
 }
 
-.Random-Line {
-    width: 100%;
-    height: 40px;
-    background-color: #3c643c;
-    position: relative;
-}
-
 @media (max-width: 700px) {
   .footer-container {
     flex-direction: column;
@@ -244,14 +268,14 @@ footer {
   }
 }
 
-article {
+.article-contact {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr;
   gap: 20px;
   justify-content: center;
   align-items: center;
-  background-color: rgb(76, 121, 70);
+  background-color: var(--background-color5);
   color: white;
   padding: 22px;
   width: 100%;
@@ -297,12 +321,12 @@ input {
   margin: 10px;
   border: none;
   border-radius: 10px;
-  color: white;
+  color: black;
   font-size: 14px;
 }
 
 button {
-  background-color: #d7ecac;
+  background-color: var(--background-color6);
   width: 250px;
   border-radius: 20px;
   color: black;
@@ -310,26 +334,4 @@ button {
   padding: 5px;
   font-size: 14px;
   cursor: pointer;
-}
-
-.Random-Line_1 {
-  background-color: #d7ecac;
-  width: 100%;
-  height: 30px;
-  padding: 0 8px 0 0;
-  position: relative;
-}
-
-.Random-Line_2 {
-    width: 100%;
-    height: 30px;
-    background-color: #d7ecac;
-    position: relative;
-}
-
-.Random-Line_3 {
-  background-color: #488048;
-  width: 100%;
-  height: 40px;
-  position: relative;
 }
