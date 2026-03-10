@@ -135,13 +135,33 @@ body {
 }
 
 .content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   padding: 20px;
   background-color: var(--background-color5);
   color: white;
   width: 100%;
 }
+
+.about-us {
+  position: relative;
+  max-width: 800px;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.content img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
 
 .footer {
   position: relative;
