@@ -38,6 +38,11 @@ header {
   width: 100vw;
 }
 
+.shopping-cart {
+  float: right;
+  margin: 0 40px 0 0;
+}
+
 nav {
   background-color: var(--background-color2);
   text-align: center;
@@ -252,6 +257,14 @@ button {
   padding: 5px;
   font-size: 14px;
   cursor: pointer;
+}
+
+/* ========================================================================== 
+   Shopping Cart
+   ========================================================================== */
+
+.shopping-cart-content {
+  min-height: 75vh;
 }
 
 /* ========================================================================== 
