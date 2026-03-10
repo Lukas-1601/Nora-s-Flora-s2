@@ -1,7 +1,21 @@
+/* ========================================================================== 
+   Base / Reset
+   ========================================================================== */
+
 * {
   text-decoration: none;
   font-family: Arial, sans-serif;
+  text-align: center;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================================================================== 
+   Root Variables
+   ========================================================================== */
 
 :root {
   --background-color1: #3c643c;
@@ -14,28 +28,26 @@
   --background-white: white;
 }
 
-html {
-    text-align: center;
-}
+/* ========================================================================== 
+   Header & Navigation
+   ========================================================================== */
 
 header {
   background-color: var(--background-color1);
   padding: 10px;
-  position: center;
   width: 100vw;
-  margin: 0 auto;
 }
 
-nav{
+nav {
   background-color: var(--background-color2);
   text-align: center;
   padding: 5px;
   position: center;
   width: 100vw;
-  margin: 0 auto;   
+  margin: 0 auto;
 }
 
-nav a{
+nav a {
   border-left: 2px solid white;
   border-right: 2px solid white;
   margin: 0 15px;
@@ -46,10 +58,9 @@ nav a{
   padding: 3px 6px;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
+/* ========================================================================== 
+   Utility / Common Classes
+   ========================================================================== */
 
 .welcome-message {
   background-image: url('Asset/Background.jpg');
@@ -76,24 +87,16 @@ body {
   margin: 0 auto;
 }
 
+/* ========================================================================== 
+   Index Page
+   ========================================================================== */
+
 .figure-index {
   display: grid;
   grid-template-columns: repeat(3, 2fr);
   max-width: 700px;
   margin: 0 auto;
   padding: 15px;
-}
-
-@media (max-width: 900px) {
-  .figure-index {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .figure-index {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .content {
@@ -117,12 +120,9 @@ body {
   flex: 1;
 }
 
-.content img {
-  width: 200px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 20px;
-}
+/* ========================================================================== 
+   Assortiment Page
+   ========================================================================== */
 
 .assortiment-figure {
   position: relative;
@@ -177,6 +177,10 @@ figcaption {
   height: 40px;
 }
 
+/* ========================================================================== 
+   Contact Page
+   ========================================================================== */
+
 .article-contact {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -192,15 +196,15 @@ figcaption {
     var(--background-color5) 93%,
     var(--background-color6) 93%,
     var(--background-color6) 100%
-  )
-}  
+  );
+}
 
 .contact-top {
   font-size: 20px;
   margin-bottom: -20px;
   grid-column: 1 / -1;
   text-align: center;
-}  
+}
 
 .contact-left {
   display: grid;
@@ -211,7 +215,7 @@ figcaption {
   font-size: 18px;
   grid-column: 1;
   margin-left: 250px;
-}  
+}
 
 .contact-right {
   text-align: center;
@@ -250,6 +254,10 @@ button {
   cursor: pointer;
 }
 
+/* ========================================================================== 
+   Footer (all pages)
+   ========================================================================== */
+
 .footer {
   position: relative;
   width: 100vw;
@@ -274,11 +282,13 @@ button {
   );
 }
 
-.footer-assortiment .footer-left-assortiment, .footer-right-assortiment{
+.footer-assortiment .footer-left-assortiment,
+.footer-right-assortiment {
   margin-top: 30px;
 }
 
-.footer-contact .footer-left-contact, .footer-right-contact{
+.footer-contact .footer-left-contact,
+.footer-right-contact {
   margin-top: 69px;
 }
 
@@ -313,6 +323,7 @@ button {
   line-height: 1.4;
   color: #eef6ea;
 }
+
 .footer-right p {
   text-align: right;
   margin: 0;
@@ -327,16 +338,9 @@ button {
   color: #ffffff;
 }
 
-@media (max-width: 700px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .footer-right {
-    margin-top: 6px;
-    text-align: left;
-  }
-}
+/* ========================================================================== 
+   Responsive Helpers
+   ========================================================================== */
 
 @media (max-width: 700px) {
   .footer-container {
