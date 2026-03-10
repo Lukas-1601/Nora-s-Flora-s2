@@ -100,7 +100,6 @@ body {
   padding: 10px 5px;
   width: 100%;
   margin: 10px auto 0 auto;
-  margin: -10px auto 0 auto;
   background-color: var(--background-white);
   justify-content: flex-start;
   
@@ -135,62 +134,20 @@ body {
   border-radius: 15px;
 }
 
-.uitleg-Nora {
-    background-color: var(--background-color1);
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: -10px auto 20px auto;
-    margin-bottom: 20px auto;
-    width: 100%;
-    max-height: 400px;
-    text-align: center;
-    overflow: auto;
-}
-
 .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.info-image {
-    border-radius: 10px;
-    width: 150px;
-    height: 180px;
-    margin-left: -450px;
-    margin-right: 300px;
-    margin-top: -100px;
-    display: block;
-    object-fit: cover;
-    
-}
-
-.uitleg-Nora h2 {
-    font-size: 30px;
-    color: white;
-    margin-bottom: 10px;
-    margin-top: 5px;
-    padding: 0;
-}
-
-.uitleg-Nora p {
-    font-size: 12px;
-    color: white;
-    line-height: 1.4;
-    margin-top: 0;
-    margin-bottom: 30px;
-    text-align: center;
-    flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  background-color: var(--background-color5);
+  color: white;
+  width: 100%;
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   color: #fff;
   padding: 0 0 8px;
-  text-align: center;
   z-index: 1000;
 }
 
