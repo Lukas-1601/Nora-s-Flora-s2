@@ -162,7 +162,6 @@ body {
   border-radius: 20px;
 }
 
-
 .footer {
   position: relative;
   width: 100%;
@@ -252,6 +251,44 @@ body {
     margin-top: 6px;
     text-align: left;
   }
+}
+
+.assortiment-figure {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 800px;
+}
+
+.big {
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 2;
+}
+
+
+.flower {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+}
+
+figcaption {
+  background-color: var(--background-color6);
+  color: black;
+  font-size: 12px;
+  padding: 10px;
+  width: 130px;
+  height: 30px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.big figcaption {
+  width: 330px;
+  height: 40px;
 }
 
 .article-contact {
