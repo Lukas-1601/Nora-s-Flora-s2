@@ -130,7 +130,7 @@ function addFlowerToGrid(imgSrc, price, index, isBig) {
   const img = document.createElement("img");
   img.src = imgSrc;
   img.width = isBig ? 370 : 170;
-  img.height = isBig ? 350 : 150;
+  img.height = isBig ? 360 : 150;
 
   const caption = document.createElement("figcaption");
   caption.innerHTML = price ? price : "No price"; // <-- FIXED

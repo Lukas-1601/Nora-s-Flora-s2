@@ -120,6 +120,14 @@ nav a {
   width: 100vw;
 }
 
+.flower-index {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px;
+}
+
 .about-us {
   position: relative;
   max-width: 800px;
@@ -149,7 +157,7 @@ nav a {
 }
 
 .flower {
-  position: relative; /* needed for delete button */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,6 +165,7 @@ nav a {
 }
 
 .flower img {
+  object-fit: cover;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -173,6 +182,7 @@ figcaption {
 }
 
 .big figcaption {
+  object-fit: cover;
   width: 350px;
   height: 40px;
 }
