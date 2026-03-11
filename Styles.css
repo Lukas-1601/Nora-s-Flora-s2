@@ -9,6 +9,8 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
 }
@@ -26,6 +28,7 @@ body {
   --background-color6: #d7ecac;
   --background-color7: #488048;
   --background-white: white;
+  --background-transparent: rgba(107, 115, 101, 0.1);
 }
 
 /* ========================================================================== 
@@ -34,8 +37,12 @@ body {
 
 header {
   background-color: var(--background-color1);
-  padding: 10px;
   width: 100vw;
+  padding: 15px 0;
+}
+
+.Logo {
+  margin: 0 0 0 100px;
 }
 
 .shopping-cart {
@@ -45,11 +52,8 @@ header {
 
 nav {
   background-color: var(--background-color2);
-  text-align: center;
-  padding: 5px;
-  position: center;
   width: 100vw;
-  margin: 0 auto;
+  padding: 10px 0;
 }
 
 nav a {
@@ -110,7 +114,7 @@ nav a {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  padding: 20px;
+  padding: 20px 0;
   background-color: var(--background-color5);
   color: white;
   width: 100vw;
@@ -133,9 +137,10 @@ nav a {
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin: 0 auto;
+  margin: auto;
   padding: 10px;
   max-width: 800px;
+  gap: 10px; /* keeps spacing consistent */
 }
 
 .big {
@@ -144,6 +149,7 @@ nav a {
 }
 
 .flower {
+  position: relative; /* needed for delete button */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,22 +172,62 @@ figcaption {
   border-bottom-right-radius: 5px;
 }
 
-.flower-index {
-  width: 180px;
-  height: 30px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background-color: var(--background-color6);
-  color: black;
-  font-size: 12px;
-  padding: 10px;
-}
-
 .big figcaption {
   width: 350px;
   height: 40px;
 }
 
+.flower-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.addFlowerBtn {
+  margin: auto;
+  width: 120px;
+  height: 120px;
+  margin-left: 200px;
+  background-color: var(--background-transparent);
+  border-radius: 40px;
+  border: 1px solid black;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.addFlowerBtn:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease;
+}
+
+.addFlowerBtn:active {
+  transform: scale(0.9);
+  transition: 0.3s ease;
+}
+
+/* NEW delete button */
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 0, 0, 0.85);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn:hover {
+  background: red;
+}
 /* ========================================================================== 
    Contact Page
    ========================================================================== */
@@ -264,7 +310,7 @@ button {
    ========================================================================== */
 
 .shopping-cart-content {
-  min-height: 75vh;
+  min-height: 76vh;
 }
 
 /* ========================================================================== 

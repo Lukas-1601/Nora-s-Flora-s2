@@ -10,7 +10,7 @@
     <body>
 
         <header>
-            <img src = "Asset/Nora'sFloraLogo.png" alt ="Logo" width="60px" height="40px">
+            <img src = "Asset/Nora'sFloraLogo.png" alt ="Logo" width="60px" height="40px" class="Logo">
             <a href="ShoppingCart.html">
                 <img src = "Asset/ShoppingCart.png" alt ="Shopping Cart" width="40px" height="40px" class="shopping-cart">
             </a>
@@ -21,7 +21,8 @@
             <a href = "Assortiment.html">Assortiment</a>
             <a href = "Contact.html">Contact</a>
         </nav>
-        <figure class="assortiment-figure">
+    <div class=flower-layout>
+        <div class="assortiment-figure">
             <div class="flower">
                 <img src="Asset/sunflowers.jpg" alt="sunflowers" width="170vw" height="150vw">
                 <figcaption>Zonnebloemen<br> €5,-</figcaption>
@@ -61,14 +62,17 @@
                 <img src="Asset/Diverse_lente_bloemen.jpg" alt="diverse lente bloemen" width="170vw" height="150vw">
                 <figcaption>Diversen lente bloemen<br>Al vanaf €7,50 per bos</figcaption>
             </div>
-            
-            <div class="flower">
-                <img src="Asset/purple flower.jpg" alt="purple flower" width="170vw" height="150vw">
-                <figcaption>Paarse Allium Bloemen<br>Per Bos €4,-</figcaption>
-            </div>
-        </figure>
+        </div>
+
+         <button class="addFlowerBtn">
+            <div class="flower"><p>Add<br>Flower</p></div>
+        </button>
+    </div>
+
+            <input type="file" id="flowerPicker" accept="image/*" style="display:none">
+
         <footer class="footer footer-assortiment">
-            <div class="footer-container">
+        <div class="footer-container">
             <div class="footer-left footer-left-assortiment">
                 <p>
                     <strong>Email</strong>              :contact@noraflora.com<br>
@@ -82,8 +86,8 @@
                     Ma - Vr : 12:00 - 17:00<br>
                     Zaterdag : 10:00 - 17:00
                 </p>
-                </div>
             </div>
+        </div>
         </footer>
         <script src="javascript.js"></script>
     </body>

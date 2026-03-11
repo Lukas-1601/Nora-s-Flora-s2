@@ -55,3 +55,118 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log('Loaded flowers:', flowerCollection.flowers);
 });
+
+const addBtn = document.querySelector(".addFlowerBtn");
+const fileInput = document.getElementById("flowerPicker");
+const container = document.querySelector(".assortiment-figure");
+
+// Load saved flowers on page load
+window.addEventListener("DOMContentLoaded", () => {
+  let saved = JSON.parse(localStorage.getItem("flowers")) || [];
+
+  // If no saved flowers exist, import static HTML flowers into localStorage
+  if (saved.length === 0) {
+    document.querySelectorAll(".assortiment-figure .flower").forEach(flower => {
+      const img = flower.querySelector("img").src;
+      const price = flower.querySelector("figcaption").innerHTML; // <-- FIXED
+      const isBig = flower.classList.contains("big");
+
+      saved.push({ img, price, big: isBig });
+    });
+
+    localStorage.setItem("flowers", JSON.stringify(saved));
+  }
+
+  // Remove static HTML flowers
+  container.innerHTML = "";
+
+  // Load all flowers from localStorage
+  saved.forEach((flower, index) => {
+    addFlowerToGrid(flower.img, flower.price, index, flower.big);
+  });
+});
+
+// Open file picker when button is clicked
+addBtn.addEventListener("click", () => {
+  fileInput.click();
+});
+
+// When user selects an image
+fileInput.addEventListener("change", () => {
+  const file = fileInput.files[0];
+  if (!file) return;
+
+  const price = prompt("Enter the caption (use <br> for new lines):"); // <-- FIXED
+  const makeBig = confirm("Do you want this flower to be BIG?");
+
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    const base64Image = event.target.result;
+
+    // Save to localStorage
+    const saved = JSON.parse(localStorage.getItem("flowers")) || [];
+    saved.push({ img: base64Image, price, big: makeBig });
+    localStorage.setItem("flowers", JSON.stringify(saved));
+
+    // Add to page
+    addFlowerToGrid(base64Image, price, saved.length - 1, makeBig);
+  };
+
+  reader.readAsDataURL(file);
+  fileInput.value = "";
+});
+
+// Add flower to grid
+function addFlowerToGrid(imgSrc, price, index, isBig) {
+  const figure = document.createElement("div");
+  figure.classList.add("flower");
+  figure.dataset.index = index;
+
+  if (isBig) {
+    figure.classList.add("big");
+  }
+
+  const img = document.createElement("img");
+  img.src = imgSrc;
+  img.width = isBig ? 370 : 170;
+  img.height = isBig ? 350 : 150;
+
+  const caption = document.createElement("figcaption");
+  caption.innerHTML = price ? price : "No price"; // <-- FIXED
+
+  // Delete button
+  const delBtn = document.createElement("button");
+  delBtn.classList.add("delete-btn");
+  delBtn.textContent = "✖";
+
+  delBtn.addEventListener("click", () => {
+    deleteFlower(index);
+    figure.remove();
+  });
+
+  figure.appendChild(img);
+  figure.appendChild(caption);
+  figure.appendChild(delBtn);
+  container.appendChild(figure);
+}
+
+// Delete flower from localStorage
+function deleteFlower(index) {
+  let saved = JSON.parse(localStorage.getItem("flowers")) || [];
+  saved.splice(index, 1);
+  localStorage.setItem("flowers", JSON.stringify(saved));
+
+  rebuildGrid();
+}
+
+// Rebuild grid after deletion
+function rebuildGrid() {
+  container.innerHTML = "";
+
+  const saved = JSON.parse(localStorage.getItem("flowers")) || [];
+
+  saved.forEach((flower, index) => {
+    addFlowerToGrid(flower.img, flower.price, index, flower.big);
+  });
+}
