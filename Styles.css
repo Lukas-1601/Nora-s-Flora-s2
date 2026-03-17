@@ -335,6 +335,25 @@ button {
   display: grid;
   grid-template-rows: 1fr 2fr 1fr;
 }
+button.checkout-button {
+  width: 500px;
+  height: 100px;
+  font-size: 32px;
+ 
+}
+
+button.checkout-button:hover {
+  background-color: var(--background-color7);
+  transition: 0.3s ease;
+}
+
+button.checkout-button:active {
+  background-color: var(--background-color5);
+  transition: 0.3s ease;
+}
+
+
+
 
 /* ========================================================================== 
    Footer (all pages)
