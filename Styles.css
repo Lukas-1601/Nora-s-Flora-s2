@@ -49,6 +49,10 @@ header {
   float: right;
   margin: 0 40px 0 0;
 }
+.shopping-cart:hover {
+  transform: scale(1.23);
+  transition: 0.3s ease;
+}
 
 nav {
   background-color: var(--background-color2);
@@ -459,6 +463,7 @@ button.checkout-button:active {
   border-radius: 15px;
   padding: 1rem;
   margin: 1rem;
+  
 }
 
 .sub-box {
