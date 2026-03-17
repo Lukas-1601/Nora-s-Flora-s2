@@ -328,6 +328,7 @@ button {
   grid-template-columns: 1fr 1fr;
   margin: 0 auto;
   min-width: 67vw;
+  max-width: 80vw;
 }
 
 .checkout {
