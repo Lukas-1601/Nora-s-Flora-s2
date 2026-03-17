@@ -323,6 +323,18 @@ button {
   min-height: 76vh;
 }
 
+.Shopping-Layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  min-width: 67vw;
+}
+
+.checkout {
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+}
+
 /* ========================================================================== 
    Footer (all pages)
    ========================================================================== */
@@ -420,4 +432,18 @@ button {
     margin-top: 6px;
     text-align: left;
   }
+}
+
+.box {
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.sub-box {
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 1rem;
+  margin: 1rem;
 }
