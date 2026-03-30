@@ -124,12 +124,22 @@ nav a {
   width: 100vw;
 }
 
+.content img {
+  height: auto;
+  width: 200px;
+}
+
 .flower-index {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 180px;
+}
+
+.flower img {
+  height: 120px;
+  width: 200px;
 }
 
 .about-us {
@@ -139,6 +149,44 @@ nav a {
 
 .text-content {
   flex: 1;
+}
+
+@media (max-width: 700px) {
+  .content {
+    width: 100vw;
+    font-size: 0.67rem;
+  }
+
+  .content img {
+    height: auto;
+    width: 120px;
+  }
+
+  .figure-index {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    width: 500px;
+    margin: 0 auto;
+    padding: 5px;
+  }
+
+  .flower img {
+    min-width: 150px;
+    max-width: 150px;
+    min-height: 100px;
+    max-height: 100px;
+  }
+
+  .flower-index {
+    min-width: 130px;
+    max-width: 130px;
+    font-size: 0.6rem;
+  }
+
+  .bloemetjes {
+    font-size: 1rem;
+    max-height: 25px;
+  }
 }
 
 /* ========================================================================== 
@@ -356,9 +404,6 @@ button.checkout-button:active {
   transition: 0.3s ease;
 }
 
-
-
-
 /* ========================================================================== 
    Footer (all pages)
    ========================================================================== */
@@ -424,7 +469,7 @@ button.checkout-button:active {
 .footer-left p {
   text-align: left;
   margin: 0;
-  font-size: 12px;
+  font-size: 0.7rem;
   line-height: 1.4;
   color: #eef6ea;
 }
@@ -432,31 +477,33 @@ button.checkout-button:active {
 .footer-right p {
   text-align: right;
   margin: 0;
-  font-size: 12px;
+  font-size: 0.7rem;
   line-height: 1.4;
   color: #eef6ea;
 }
 
 .footer-right h3 {
   margin: 0 0 8px 0;
-  font-size: 18px;
+  font-size: 1rem;
   color: #ffffff;
+}
+
+@media (max-width: 700px) {
+  .footer {
+    max-width: 700px;
+  }
+
+  .footer-left p,
+  .footer-right p,
+  .footer-right h3 {
+    font-size: 0.6rem;
+  }
+
 }
 
 /* ========================================================================== 
    Responsive Helpers
    ========================================================================== */
-
-@media (max-width: 700px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .footer-right {
-    margin-top: 6px;
-    text-align: left;
-  }
-}
 
 .box {
   border: 1px solid black;
