@@ -140,6 +140,8 @@ nav a {
 .flower-index img {
   height: 120px;
   width: 150px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .flower-index figcaption {
@@ -150,6 +152,8 @@ nav a {
   padding: 15px;
   width: 120px;
   height: 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .about-us {
