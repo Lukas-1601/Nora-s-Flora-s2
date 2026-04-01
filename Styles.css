@@ -137,9 +137,19 @@ nav a {
   width: 180px;
 }
 
-.flower img {
+.flower-index img {
   height: 120px;
-  width: 200px;
+  width: 150px;
+}
+
+.flower-index figcaption {
+  background-color: var(--background-color6);
+  color: black;
+  font-size: 10px;
+  margin: 0 10px 10px 10px;
+  padding: 15px;
+  width: 120px;
+  height: 30px;
 }
 
 .about-us {
