@@ -19,25 +19,21 @@ class FlowerCollection {
     }
   }
 
-  // Optional: method to add flower by properties
   addFlowerByDetails(name, colour, age) {
     const flower = new Flower(name, colour, age);
     this.addFlower(flower);
   }
 }
 
-// kirk it up 
 const flowerCollection = new FlowerCollection();
 
-// Create instances for each flower
 const sunflower = new Flower('Zonnebloemen', 'Yellow', 3);
 const redTulip = new Flower('Rode Tulpen', 'Red', 2);
-const cactus = new Flower('Cactus in pot', 'Green', 30); // Assuming days old
+const cactus = new Flower('Cactus in pot', 'Green', 30);
 const specialGrass = new Flower('Speciaal deze maand', 'Green', 1);
 const purpleAllium = new Flower('Paarse Allium Bloemen', 'Purple', 4);
 const succulents = new Flower('Vetbloemen', 'Green', 7);
 
-// Add them to the collection
 flowerCollection.addFlower(sunflower);
 flowerCollection.addFlower(redTulip);
 flowerCollection.addFlower(cactus);
@@ -49,54 +45,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const images = document.querySelectorAll('.FlowerCollection img');
   images.forEach(img => {
     const name = img.alt && img.alt.trim() ? img.alt.trim() : img.src;
-    // Assuming default colour and age since not provided in HTML
     flowerCollection.addFlowerByDetails(name, 'Unknown', 0);
   });
 
-  console.log('Loaded flowers:', flowerCollection.flowers);
+
 });
 
 const addBtn = document.querySelector(".addFlowerBtn");
 const fileInput = document.getElementById("flowerPicker");
 const container = document.querySelector(".assortiment-figure");
 
-// Load saved flowers on page load
 window.addEventListener("DOMContentLoaded", () => {
-  let saved = JSON.parse(localStorage.getItem("flowers")) || [];
+  if (container) {
+    let saved = JSON.parse(localStorage.getItem("flowers")) || [];
 
-  // If no saved flowers exist, import static HTML flowers into localStorage
-  if (saved.length === 0) {
-    document.querySelectorAll(".assortiment-figure .flower").forEach(flower => {
-      const img = flower.querySelector("img").src;
-      const price = flower.querySelector("figcaption").innerHTML; // <-- FIXED
-      const isBig = flower.classList.contains("big");
+    if (saved.length === 0) {
+      document.querySelectorAll(".assortiment-figure .flower").forEach(flower => {
+        const img = flower.querySelector("img").src;
+        const price = flower.querySelector("figcaption").innerHTML;
+        const isBig = flower.classList.contains("big");
 
-      saved.push({ img, price, big: isBig });
+        saved.push({ img, price, big: isBig });
+      });
+
+      localStorage.setItem("flowers", JSON.stringify(saved));
+    }
+
+    container.innerHTML = "";
+
+    saved.forEach((flower, index) => {
+      addFlowerToGrid(flower.img, flower.price, index, flower.big);
     });
-
-    localStorage.setItem("flowers", JSON.stringify(saved));
   }
+});
 
-  // Remove static HTML flowers
-  container.innerHTML = "";
-
-  // Load all flowers from localStorage
-  saved.forEach((flower, index) => {
-    addFlowerToGrid(flower.img, flower.price, index, flower.big);
+if (addBtn) {
+  addBtn.addEventListener("click", () => {
+    fileInput.click();
   });
-});
+}
 
-// Open file picker when button is clicked
-addBtn.addEventListener("click", () => {
-  fileInput.click();
-});
-
-// When user selects an image
-fileInput.addEventListener("change", () => {
+if (fileInput) {
+  fileInput.addEventListener("change", () => {
   const file = fileInput.files[0];
   if (!file) return;
 
-  const price = prompt("Enter the caption (use <br> for new lines):"); // <-- FIXED
+  const price = prompt("Enter the caption (use <br> for new lines):");
   const makeBig = confirm("Do you want this flower to be BIG?");
 
   const reader = new FileReader();
@@ -104,20 +98,18 @@ fileInput.addEventListener("change", () => {
   reader.onload = function (event) {
     const base64Image = event.target.result;
 
-    // Save to localStorage
     const saved = JSON.parse(localStorage.getItem("flowers")) || [];
     saved.push({ img: base64Image, price, big: makeBig });
     localStorage.setItem("flowers", JSON.stringify(saved));
 
-    // Add to page
     addFlowerToGrid(base64Image, price, saved.length - 1, makeBig);
   };
 
   reader.readAsDataURL(file);
   fileInput.value = "";
-});
+  });
+}
 
-// Add flower to grid
 function addFlowerToGrid(imgSrc, price, index, isBig) {
   const figure = document.createElement("div");
   figure.classList.add("flower");
@@ -133,9 +125,8 @@ function addFlowerToGrid(imgSrc, price, index, isBig) {
   img.height = isBig ? 390 : 150;
 
   const caption = document.createElement("figcaption");
-  caption.innerHTML = price ? price : "No price"; // <-- FIXED
+  caption.innerHTML = price ? price : "No price";
 
-  // Add to cart button
   const addBtn = document.createElement("button");
   addBtn.classList.add("add-to-cart-btn");
   addBtn.textContent = "Add to cart";
@@ -144,7 +135,6 @@ function addFlowerToGrid(imgSrc, price, index, isBig) {
     addToCart(name, price, imgSrc);
   });
 
-  // Delete button
   const delBtn = document.createElement("button");
   delBtn.classList.add("delete-btn");
   delBtn.textContent = "✖";
@@ -161,7 +151,6 @@ function addFlowerToGrid(imgSrc, price, index, isBig) {
   container.appendChild(figure);
 }
 
-// Delete flower from localStorage
 function deleteFlower(index) {
   let saved = JSON.parse(localStorage.getItem("flowers")) || [];
   saved.splice(index, 1);
@@ -170,7 +159,6 @@ function deleteFlower(index) {
   rebuildGrid();
 }
 
-// Rebuild grid after deletion
 function rebuildGrid() {
   container.innerHTML = "";
 
@@ -181,7 +169,6 @@ function rebuildGrid() {
   });
 }
 
-// Shopping Cart functionality
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function saveCart() {
@@ -189,8 +176,7 @@ function saveCart() {
 }
 
 function addToCart(name, price, imgSrc) {
-  // Extract numeric price
-  const priceMatch = price.match(/€(\d+(?:,\d+)?)/);
+  const priceMatch = price.match(/€\s*(\d+(?:,\d+)?)/);
   const numericPrice = priceMatch ? parseFloat(priceMatch[1].replace(',', '.')) : 0;
 
   const item = {
@@ -200,7 +186,6 @@ function addToCart(name, price, imgSrc) {
     quantity: 1
   };
 
-  // Check if item already in cart
   const existing = cart.find(i => i.name === name && i.image === imgSrc);
   if (existing) {
     existing.quantity += 1;
@@ -218,7 +203,7 @@ function calculateTotal() {
 
 function loadCart() {
   const orderSummary = document.querySelector('.order-summary');
-  if (!orderSummary) return; // Not on cart page
+  if (!orderSummary) return;
 
   let html = '<h3>Shopping Cart</h3>';
   if (cart.length === 0) {
@@ -266,20 +251,17 @@ function changeQuantity(index, delta) {
   loadCart();
 }
 
-// Add click listeners to flower images
 document.addEventListener('DOMContentLoaded', () => {
-  // For static flowers
   document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const flowerDiv = btn.closest('.flower');
       const figcaption = flowerDiv.querySelector('figcaption');
       const img = flowerDiv.querySelector('img');
-      const name = figcaption ? figcaption.textContent.split('<br>')[0].trim() : img.alt;
+      const name = figcaption ? figcaption.innerHTML.split('<br>')[0].trim() : img.alt;
       const price = figcaption ? figcaption.innerHTML : '€0,-';
       addToCart(name, price, img.src);
     });
   });
 
-  // Load cart if on cart page
   loadCart();
 });
