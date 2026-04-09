@@ -135,6 +135,15 @@ function addFlowerToGrid(imgSrc, price, index, isBig) {
   const caption = document.createElement("figcaption");
   caption.innerHTML = price ? price : "No price"; // <-- FIXED
 
+  // Add to cart button
+  const addBtn = document.createElement("button");
+  addBtn.classList.add("add-to-cart-btn");
+  addBtn.textContent = "Add to cart";
+  addBtn.addEventListener('click', () => {
+    const name = price.split('<br>')[0].trim() || 'Flower';
+    addToCart(name, price, imgSrc);
+  });
+
   // Delete button
   const delBtn = document.createElement("button");
   delBtn.classList.add("delete-btn");
@@ -147,6 +156,7 @@ function addFlowerToGrid(imgSrc, price, index, isBig) {
 
   figure.appendChild(img);
   figure.appendChild(caption);
+  figure.appendChild(addBtn);
   figure.appendChild(delBtn);
   container.appendChild(figure);
 }
@@ -170,3 +180,106 @@ function rebuildGrid() {
     addFlowerToGrid(flower.img, flower.price, index, flower.big);
   });
 }
+
+// Shopping Cart functionality
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(name, price, imgSrc) {
+  // Extract numeric price
+  const priceMatch = price.match(/€(\d+(?:,\d+)?)/);
+  const numericPrice = priceMatch ? parseFloat(priceMatch[1].replace(',', '.')) : 0;
+
+  const item = {
+    name: name,
+    price: numericPrice,
+    image: imgSrc,
+    quantity: 1
+  };
+
+  // Check if item already in cart
+  const existing = cart.find(i => i.name === name && i.image === imgSrc);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push(item);
+  }
+
+  saveCart();
+  alert(`${name} added to cart!`);
+}
+
+function calculateTotal() {
+  return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+}
+
+function loadCart() {
+  const orderSummary = document.querySelector('.order-summary');
+  if (!orderSummary) return; // Not on cart page
+
+  let html = '<h3>Shopping Cart</h3>';
+  if (cart.length === 0) {
+    html += '<p>Your cart is empty.</p>';
+  } else {
+    cart.forEach((item, index) => {
+      const subtotal = (item.price * item.quantity).toFixed(2);
+      html += `
+        <div class="cart-item">
+          <img src="${item.image}" alt="${item.name}" width="50" height="50">
+          <div class="item-details">
+            <span class="item-name">${item.name}</span>
+            <span class="item-price">€${item.price.toFixed(2)}</span>
+            <div class="quantity-controls">
+              <button onclick="changeQuantity(${index}, -1)">-</button>
+              <span class="quantity">${item.quantity}</span>
+              <button onclick="changeQuantity(${index}, 1)">+</button>
+            </div>
+            <span class="subtotal">Subtotal: €${subtotal}</span>
+            <button onclick="removeFromCart(${index})">Remove</button>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  const total = calculateTotal();
+  html += `<p><strong>Total: €${total.toFixed(2)}</strong></p>`;
+
+  orderSummary.innerHTML = html;
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  saveCart();
+  loadCart();
+}
+
+function changeQuantity(index, delta) {
+  cart[index].quantity += delta;
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+  saveCart();
+  loadCart();
+}
+
+// Add click listeners to flower images
+document.addEventListener('DOMContentLoaded', () => {
+  // For static flowers
+  document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const flowerDiv = btn.closest('.flower');
+      const figcaption = flowerDiv.querySelector('figcaption');
+      const img = flowerDiv.querySelector('img');
+      const name = figcaption ? figcaption.textContent.split('<br>')[0].trim() : img.alt;
+      const price = figcaption ? figcaption.innerHTML : '€0,-';
+      addToCart(name, price, img.src);
+    });
+  });
+
+  // Load cart if on cart page
+  loadCart();
+});

@@ -56,6 +56,75 @@ header {
   transition: 0.3s ease;
 }
 
+/* ========================================================================== 
+   Cart Styles
+   ========================================================================== */
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.cart-item img {
+  margin-right: 10px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-name {
+  font-weight: bold;
+  display: block;
+}
+
+.item-price {
+  color: #666;
+  display: block;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.quantity-controls button {
+  width: 30px;
+  height: 30px;
+  background-color: var(--background-color2);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.quantity {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.subtotal {
+  font-weight: bold;
+  color: var(--background-color1);
+}
+
+.add-to-cart-btn {
+  background-color: var(--background-color1);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: var(--background-color2);
+}
+
 nav {
   background-color: var(--background-color2);
   width: 100vw;
