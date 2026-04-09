@@ -112,19 +112,6 @@ header {
   color: var(--background-color1);
 }
 
-.add-to-cart-btn {
-  background-color: var(--background-color1);
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin-top: 5px;
-}
-
-.add-to-cart-btn:hover {
-  background-color: var(--background-color2);
-}
-
 nav {
   background-color: var(--background-color2);
   width: 100vw;
@@ -285,7 +272,7 @@ nav a {
   margin: auto;
   padding: 10px;
   max-width: 800px;
-  gap: 10px; /* keeps spacing consistent */
+  gap: 10px;
 }
 
 .big {
@@ -324,8 +311,8 @@ figcaption {
 
 .big figcaption {
   object-fit: cover;
-  width: 100%;
-  max-width: 370px;
+  width: 95%;
+  max-width: 100%;
   height: 40px;
 }
 
@@ -359,7 +346,6 @@ figcaption {
   transition: 0.3s ease;
 }
 
-/* NEW delete button */
 .delete-btn {
   position: absolute;
   top: 5px;
@@ -379,6 +365,20 @@ figcaption {
 
 .delete-btn:hover {
   background: red;
+}
+
+.add-to-cart-btn {
+  background-color: var(--background-color1);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 5px;
+  width: 75%;
+}
+
+.add-to-cart-btn:hover {
+  background-color: var(--background-color2);
 }
 
 @media (max-width: 700px) {
