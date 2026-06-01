@@ -265,3 +265,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadCart();
 });
+
+function showForm(form) {
+    document.querySelectorAll('.form').forEach(f => f.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+
+    document.getElementById(form).classList.add('active');
+    event.target.classList.add('active');
+}

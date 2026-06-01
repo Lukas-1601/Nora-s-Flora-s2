@@ -56,6 +56,11 @@ header {
   transition: 0.3s ease;
 }
 
+.user-profile {
+  float: right;
+  margin: 0 40px 0 0;
+}
+
 /* ========================================================================== 
    Cart Styles
    ========================================================================== */
@@ -716,3 +721,105 @@ button.checkout-button:active {
   padding: 1rem;
   margin: 1rem;
 }
+
+/* ========================================================================== 
+   Login Page
+   ========================================================================== */
+
+.body_LoginPage {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #0f5132, #198754, #28a745);
+    background-size: 300% 300%;
+    animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.auth-container {
+    width: 350px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.tab.active {
+    border-bottom: 2px solid #b6ffce;
+    font-weight: bold;
+}
+
+.form {
+    display: none;
+    flex-direction: column;
+}
+
+.form.active {
+    display: flex;
+}
+
+h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+input {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    width: 95%;
+}
+
+.button_LoginPage, .button_SignUpPage {
+    margin: 10px auto 0 auto;
+    padding: 12px;
+    background: #b6ffce;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d1ffe0;
+}
+
+.Go_Back {
+    float: left;
+    margin-top: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
