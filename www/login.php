@@ -27,12 +27,13 @@ if (password_verify($password, $hashedPassword)) {
     $_SESSION['user_id'] = $id;
     $_SESSION['username'] = $username;
 
-    echo "Login successful";
-    // header("Location: index.html");  // uncomment to redirect
+    // Redirect to homepage
+    header("Location: index.html");
+    exit();
 } else {
-    echo "Invalid username or password";
+    exit("Invalid username or password");
 }
 
 $stmt->close();
 $conn->close();
-
+?>

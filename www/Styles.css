@@ -823,3 +823,11 @@ button:hover {
     transition: 0.3s;
 }
 
+select{
+    width: 40%;
+    height: 30px;
+    background-color: var(--background-color6);    
+    border: none;
+    border-radius: 8px;
+    color: black;
+}
