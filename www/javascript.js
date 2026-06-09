@@ -267,9 +267,55 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showForm(form) {
-    document.querySelectorAll('.form').forEach(f => f.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll(".form").forEach(f => f.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
 
-    document.getElementById(form).classList.add('active');
-    event.target.classList.add('active');
+    document.getElementById(form).classList.add("active");
+    event.target.classList.add("active");
 }
+
+// SIGN UP
+document.querySelector(".button_SignUpPage").addEventListener("click", async () => {
+    const username = document.querySelector("#signup input[type='text']").value;
+    const email = document.querySelector("#signup input[type='email']").value;
+    const password = document.querySelector("#signup input[type='password']").value;
+
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
+
+    const response = await fetch("signup.php", {
+        method: "POST",
+        body: formData
+    });
+
+    const result = await response.json();
+    alert(result.message);
+
+    if (result.status === "success") {
+        showForm("login");
+    }
+});
+
+// LOGIN
+document.querySelector(".button_LoginPage").addEventListener("click", async () => {
+    const username = document.querySelector("#login input[type='text']").value;
+    const password = document.querySelector("#login input[type='password']").value;
+
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("password", password);
+
+    const response = await fetch("login.php", {
+        method: "POST",
+        body: formData
+    });
+
+    const result = await response.json();
+    alert(result.message);
+
+    if (result.status === "success") {
+        window.location.href = "index.html";
+    }
+});

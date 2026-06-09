@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles.css">
+    <title>Create Account/Login</title>
+</head>
+
+<body class="body_LoginPage">
+<div class="auth-container">
+    <div class="tabs">
+        <button class="tab active" onclick="showForm('login')">Login</button>
+        <button class="tab" onclick="showForm('signup')">Sign Up</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="login" class="form active">
+        <h2>Welcome Back</h2>
+
+        <form action="login.php" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button class="button_LoginPage" type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signup" class="form">
+        <h2>Create Account</h2>
+
+        <form action="register.php" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button class="button_SignUpPage" type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+<a href="index.html" class="Go_Back">
+    <p>Go Back</p>
+</a>
+
+<script src="javascript.js"></script>
+</body>
+</html>

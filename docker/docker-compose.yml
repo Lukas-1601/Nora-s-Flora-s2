@@ -1,0 +1,38 @@
+services:
+  php:
+    build: ./php
+    container_name: norasflora-php
+    volumes:
+      - ../www:/var/www/html
+    ports:
+      - "8082:80"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mariadb:latest
+    container_name: norasflora-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: NorasFlora
+      MYSQL_USER: student
+      MYSQL_PASSWORD: veiligwachtwoord
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: norasflora-phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: password
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
