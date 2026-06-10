@@ -1,3 +1,13 @@
+<?php
+session_start();
+?>
+
+<?php if (isset($_SESSION['user_id'])): ?>
+    <a href="logout.php" class="login-button">Logout</a>
+<?php else: ?>
+    <a href="LoginPage.html#login" class="login-button">Login/Register</a>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="NL">
     <head>
@@ -14,16 +24,14 @@
             <a href="ShoppingCart.html">
                 <img src = "Asset/ShoppingCart.png" alt ="Shopping Cart" width="40px" height="40px" class="shopping-cart">
             </a>
-            <a href="LoginPage.html">
-                <img src = "Asset/gray-user-profile-icon-png-fP8Q1P.png" alt ="User Profile" width="40px" height="40px" class="user-profile">
-            </a>
         </header> 
 
         <nav>   
-            <a href = "index.html">Home page</a>
-            <a href = "Assortiment.html">Assortiment</a>
-            <a href = "Contact.html">Contact</a>
+            <a href="index.php">Home page</a>
+            <a href="Assortiment.html">Assortiment</a>
+            <a href="Contact.html">Contact</a>
         </nav>
+
 
     <section class="welcome-message">
         <h1>Welkom bij Nora's Flora!</h1>
