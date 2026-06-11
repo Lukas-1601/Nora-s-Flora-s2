@@ -51,123 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-const addBtn = document.querySelector(".addFlowerBtn");
-const fileInput = document.getElementById("flowerPicker");
-const container = document.querySelector(".assortiment-figure");
+const searchInput = document.getElementById("flower-search");
+const resultsList = document.getElementById("flower-results-list");
+const previewItems = document.querySelectorAll(".flower-preview-item");
 
-window.addEventListener("DOMContentLoaded", () => {
-  if (container) {
-    let saved = JSON.parse(localStorage.getItem("flowers")) || [];
+function renderFlowerResults() {
+  const query = (searchInput?.value || "").trim().toLowerCase();
 
-    if (saved.length === 0) {
-      document.querySelectorAll(".assortiment-figure .flower").forEach(flower => {
-        const img = flower.querySelector("img").src;
-        const price = flower.querySelector("figcaption").innerHTML;
-        const isBig = flower.classList.contains("big");
+  previewItems.forEach((item) => {
+    const label = item.textContent.toLowerCase();
+    const matches = !query || label.includes(query);
+    item.classList.toggle("is-hidden", !matches);
+  });
 
-        saved.push({ img, price, big: isBig });
-      });
-
-      localStorage.setItem("flowers", JSON.stringify(saved));
-    }
-
-    container.innerHTML = "";
-
-    saved.forEach((flower, index) => {
-      addFlowerToGrid(flower.img, flower.price, index, flower.big);
-    });
+  if (resultsList) {
+    resultsList.innerHTML = "";
   }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (searchInput) {
+    searchInput.addEventListener("input", renderFlowerResults);
+  }
+
+  renderFlowerResults();
 });
-
-if (addBtn) {
-  addBtn.addEventListener("click", () => {
-    fileInput.click();
-  });
-}
-
-if (fileInput) {
-  fileInput.addEventListener("change", () => {
-  const file = fileInput.files[0];
-  if (!file) return;
-
-  const price = prompt("Enter the caption (use <br> for new lines):");
-  const makeBig = confirm("Do you want this flower to be BIG?");
-
-  const reader = new FileReader();
-
-  reader.onload = function (event) {
-    const base64Image = event.target.result;
-
-    const saved = JSON.parse(localStorage.getItem("flowers")) || [];
-    saved.push({ img: base64Image, price, big: makeBig });
-    localStorage.setItem("flowers", JSON.stringify(saved));
-
-    addFlowerToGrid(base64Image, price, saved.length - 1, makeBig);
-  };
-
-  reader.readAsDataURL(file);
-  fileInput.value = "";
-  });
-}
-
-function addFlowerToGrid(imgSrc, price, index, isBig) {
-  const figure = document.createElement("div");
-  figure.classList.add("flower");
-  figure.dataset.index = index;
-
-  if (isBig) {
-    figure.classList.add("big");
-  }
-
-  const img = document.createElement("img");
-  img.src = imgSrc;
-  img.width = isBig ? 370 : 150;
-  img.height = isBig ? 390 : 150;
-
-  const caption = document.createElement("figcaption");
-  caption.innerHTML = price ? price : "No price";
-
-  const addBtn = document.createElement("button");
-  addBtn.classList.add("add-to-cart-btn");
-  addBtn.textContent = "Add to cart";
-  addBtn.addEventListener('click', () => {
-    const name = price.split('<br>')[0].trim() || 'Flower';
-    addToCart(name, price, imgSrc);
-  });
-
-  const delBtn = document.createElement("button");
-  delBtn.classList.add("delete-btn");
-  delBtn.textContent = "✖";
-
-  delBtn.addEventListener("click", () => {
-    deleteFlower(index);
-    figure.remove();
-  });
-
-  figure.appendChild(img);
-  figure.appendChild(caption);
-  figure.appendChild(addBtn);
-  figure.appendChild(delBtn);
-  container.appendChild(figure);
-}
-
-function deleteFlower(index) {
-  let saved = JSON.parse(localStorage.getItem("flowers")) || [];
-  saved.splice(index, 1);
-  localStorage.setItem("flowers", JSON.stringify(saved));
-
-  rebuildGrid();
-}
-
-function rebuildGrid() {
-  container.innerHTML = "";
-
-  const saved = JSON.parse(localStorage.getItem("flowers")) || [];
-
-  saved.forEach((flower, index) => {
-    addFlowerToGrid(flower.img, flower.price, index, flower.big);
-  });
-}
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 

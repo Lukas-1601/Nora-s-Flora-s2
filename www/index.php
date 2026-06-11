@@ -2,12 +2,6 @@
 session_start();
 ?>
 
-<?php if (isset($_SESSION['user_id'])): ?>
-    <a href="logout.php" class="login-button">Logout</a>
-<?php else: ?>
-    <a href="LoginPage.html#login" class="login-button">Login/Register</a>
-<?php endif; ?>
-
 <!DOCTYPE html>
 <html lang="NL">
     <head>
@@ -21,9 +15,20 @@ session_start();
 
         <header>
             <img src = "Asset/Nora'sFloraLogo.png" alt ="Logo" width="60px" height="40px" class="Logo">
-            <a href="ShoppingCart.html">
-                <img src = "Asset/ShoppingCart.png" alt ="Shopping Cart" width="40px" height="40px" class="shopping-cart">
-            </a>
+            <div class="header-actions">
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <a href="logout.php" class="user-profile-button" aria-label="Logout">
+                        <img src="Asset/1244531_v9_aa.jpg" alt="Logout" class="user-profile-icon">
+                    </a>
+                <?php else: ?>
+                    <a href="LoginPage.html#login" class="user-profile-button" aria-label="Login/Register">
+                        <img src="Asset/1244531_v9_aa.jpg" alt="Login/Register" class="user-profile-icon">
+                    </a>
+                <?php endif; ?>
+                <a href="ShoppingCart.html">
+                    <img src = "Asset/ShoppingCart.png" alt ="Shopping Cart" width="40px" height="40px" class="shopping-cart">
+                </a>
+            </div>
         </header> 
 
         <nav>   

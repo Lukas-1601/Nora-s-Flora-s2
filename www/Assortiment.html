@@ -11,9 +11,14 @@
 
         <header>
             <img src = "Asset/Nora'sFloraLogo.png" alt ="Logo" width="60px" height="40px" class="Logo">
-            <a href="ShoppingCart.html">
-                <img src = "Asset/ShoppingCart.png" alt ="Shopping Cart" width="40px" height="40px" class="shopping-cart">
-            </a>
+            <div class="header-actions">
+                <a href="LoginPage.html#login" class="user-profile-button" aria-label="Login/Register">
+                    <img src="Asset/1244531_v9_aa.jpg" alt="Login/Register" class="user-profile-icon">
+                </a>
+                <a href="ShoppingCart.html">
+                    <img src = "Asset/ShoppingCart.png" alt ="Shopping Cart" width="40px" height="40px" class="shopping-cart">
+                </a>
+            </div>
         </header>
         
         <nav>   
@@ -21,63 +26,37 @@
             <a href="Assortiment.html">Assortiment</a>
             <a href="Contact.html">Contact</a>
         </nav>
-    <div class=flower-layout>
-        <div class="assortiment-figure">
-            <div class="flower">
-                <img src="Asset/sunflowers.jpg" alt="sunflowers" width="170vw" height="150vw">
-                <figcaption>Zonnebloemen<br> €5,-</figcaption>
-                <button class="add-to-cart-btn">Add to cart</button>
-            </div>
 
-            <div class="flower">
-                <img src="Asset/tulips.jpg" alt="tulips" width="170vw" height="150vw">
-                <figcaption>Rode Tulpen<br>€7,68</figcaption>
-                <button class="add-to-cart-btn">Add to cart</button>
-            </div>
+        <div class="assortment-search">
+            <input type="text" id="flower-search" placeholder="Search flowers..." aria-label="Search flowers">
+        </div>
 
-            <div class="flower">
-                <img src="Asset/Cactus.jpg" alt="cactus" width="170vw" height="150vw">
-                <figcaption>Cactus<br>€2,-</figcaption>
-                <button class="add-to-cart-btn">Add to cart</button>
+        <div class="flower-preview-strip" aria-label="Featured flowers">
+            <div class="flower-preview-item">
+                <img src="Asset/sunflowers.jpg" alt="Zonnebloemen">
+                <span>Zonnebloemen</span>
             </div>
-
-            <div class="flower">
-                <img src="Asset/Rozen_Bouqet.jpg" alt="rozen_bouqet" width="170vw" height="150vw">
-                <figcaption>Rozen Bouquet<br>€19,60</figcaption>
-                <button class="add-to-cart-btn">Add to cart</button>
+            <div class="flower-preview-item">
+                <img src="Asset/tulips.jpg" alt="Rode Tulpen">
+                <span>Rode Tulpen</span>
             </div>
-
-            <div class="flower big">
-                <img src="Asset/Trouwdag_bouqet.jpg" alt="trouwdag_bouqet" width="370vw" height="350vw">
-                <figcaption>Speciaal samengesteld trouwdag bouqet bundel<br>Al vanaf €25,-</figcaption>
-                <button class="add-to-cart-btn">Add to cart</button>
+            <div class="flower-preview-item">
+                <img src="Asset/Cactus.jpg" alt="Cactus in pot">
+                <span>Cactus in pot</span>
             </div>
-
-            <div class="flower">
-                <img src="Asset/Lente_bouqet.jpg" alt="lente_bouqet" width="170vw" height="150vw">
-                <figcaption>Lente Bouquet<br>Al vanaf €20,-</figcaption>
-                <button class="add-to-cart-btn">Add to cart</button>
+            <div class="flower-preview-item">
+                <img src="Asset/Rozen_Bouqet.jpg" alt="Rozen Bouquet">
+                <span>Rozen Bouquet</span>
             </div>
-
-            <div class="flower">
-                <img src="Asset/Diversen.jpg" alt="diversen" width="170vw" height="150vw">
-                <figcaption>Diversen vet planten<br>Al vanaf €5,- per pot</figcaption>
-                <button class="add-to-cart-btn">Add to cart</button>
-            </div>
-
-            <div class="flower">
-                <img src="Asset/Diverse_lente_bloemen.jpg" alt="diverse lente bloemen" width="170vw" height="150vw">
-                <figcaption>Diversen lente bloemen<br>Al vanaf €7,50 per bos</figcaption>
-                <button class="add-to-cart-btn">Add to cart</button>
+            <div class="flower-preview-item">
+                <img src="Asset/Lente_bouqet.jpg" alt="Lente Bouquet">
+                <span>Lente Bouquet</span>
             </div>
         </div>
 
-         <button class="addFlowerBtn">
-            <div class="flower"><p>Add<br>Flower</p></div>
-        </button>
+    <div class="flower-layout">
+        <div class="assortiment-figure" id="flower-results-list" aria-live="polite"></div>
     </div>
-
-            <input type="file" id="flowerPicker" accept="image/*" style="display:none">
 
         <footer class="footer footer-assortiment">
         <div class="footer-container">
