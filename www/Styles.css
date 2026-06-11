@@ -188,7 +188,35 @@ nav a {
   align-items: center;
   justify-content: center;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
+
+.welcome-message > *:not(.cat-sticker) {
+  position: relative;
+  z-index: 1;
+}
+
+.cat-sticker {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  z-index: 0;
+  opacity: 0.95;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+.cat-sticker-1 { top: 26px; left: 12%; transform: rotate(-18deg); }
+.cat-sticker-2 { top: 46px; left: 24%; transform: rotate(12deg); }
+.cat-sticker-3 { top: 28px; right: 16%; transform: rotate(18deg); }
+.cat-sticker-4 { top: 96px; left: 7%; transform: rotate(-12deg); }
+.cat-sticker-5 { top: 92px; right: 9%; transform: rotate(14deg); }
+.cat-sticker-6 { bottom: 34px; left: 18%; transform: rotate(-8deg); }
+.cat-sticker-7 { bottom: 34px; right: 20%; transform: rotate(10deg); }
+.cat-sticker-8 { bottom: 22px; left: 40%; transform: rotate(-6deg); }
+.cat-sticker-9 { bottom: 22px; right: 38%; transform: rotate(6deg); }
 
 .welcome-message h1 {
   font-family: 'Georgia', 'Times New Roman', serif;
