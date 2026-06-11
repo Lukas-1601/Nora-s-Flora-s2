@@ -11,7 +11,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="NL">
     <head>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="Styles.css">
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Nora's Flora</title>
@@ -27,7 +27,7 @@ session_start();
         </header> 
 
         <nav>   
-            <a href="index.php">Home page</a>
+            <a href="index.html">Home page</a>
             <a href="Assortiment.html">Assortiment</a>
             <a href="Contact.html">Contact</a>
         </nav>

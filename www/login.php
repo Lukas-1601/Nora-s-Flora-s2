@@ -28,7 +28,7 @@ if (password_verify($password, $hashedPassword)) {
     $_SESSION['username'] = $username;
 
     // Redirect to homepage
-    header("Location: index.php");
+    header("Location: index.html");
     exit();
 } else {
     exit("Invalid username or password");
