@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hell</title>
+        <link rel="stylesheet" href="Styles.css">
+        <style>
+            body {
+                margin: 0;
+                min-height: 100vh;
+                background-image: url("Asset/negaaegnoadgagda.png");
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                color: white;
+                overflow: hidden;
+            }
+
+            header {
+                display: none !important;
+            }
+
+            main {
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 40px 20px;
+                box-sizing: border-box;
+                gap: 24px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .hell-box {
+                background: rgba(0, 0, 0, 0.72);
+                padding: 30px;
+                border-radius: 16px;
+                max-width: 560px;
+                text-align: center;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+            }
+
+            .flame-text {
+                display: inline-block;
+                font-weight: 900;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                position: relative;
+                background: linear-gradient(90deg, #ff5a1f 0%, #ffd54f 25%, #ff8c00 50%, #ff3b00 75%, #ffdf70 100%);
+                background-size: 220% 220%;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: flameShift 1.4s ease-in-out infinite alternate, flameFlicker 0.16s steps(3,end) infinite;
+                filter: drop-shadow(0 0 8px rgba(255, 120, 0, 0.45));
+            }
+
+            .flame-text::before,
+            .flame-text::after {
+                content: attr(data-text);
+                position: absolute;
+                left: 0;
+                top: 0;
+                pointer-events: none;
+                opacity: 0.45;
+            }
+
+            .flame-text::before {
+                color: #ff3b00;
+                transform: translate(1px, 1px);
+                animation: flameWobble 0.18s ease-in-out infinite alternate;
+            }
+
+            .flame-text::after {
+                color: #ffd166;
+                transform: translate(-1px, -1px);
+                animation: flameWobble 0.22s ease-in-out infinite alternate-reverse;
+            }
+
+            .flame-body {
+                animation: flamePulse 0.9s ease-in-out infinite alternate;
+            }
+
+            .partner-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(220px, 1fr));
+                gap: 20px;
+                margin-top: 24px;
+                width: 100%;
+                max-width: 700px;
+            }
+
+            .partner-card {
+                background: rgba(20, 10, 10, 0.82);
+                border: 1px solid rgba(255, 90, 31, 0.35);
+                border-radius: 14px;
+                padding: 16px;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+            }
+
+            .partner-card img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                border-radius: 10px;
+                margin-bottom: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .partner-card h3 {
+                margin: 0 0 8px;
+                color: #ffb26b;
+                font-size: 1.1rem;
+            }
+
+            .partner-card p {
+                margin: 0;
+                line-height: 1.5;
+                font-size: 0.95rem;
+                color: #ffe6c2;
+            }
+
+            .chain-notice {
+                margin-top: 16px;
+                font-size: 0.95rem;
+                line-height: 1.6;
+                color: #ffd1a3;
+                font-style: italic;
+            }
+
+            .hell-description {
+                width: 280px;
+                background: rgba(8, 4, 4, 0.85);
+                border: 1px solid rgba(255, 90, 31, 0.3);
+                border-radius: 14px;
+                padding: 20px;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+                text-align: left;
+            }
+
+            .side-guard {
+                width: 220px;
+                border: 1px solid rgba(255, 90, 31, 0.28);
+                border-radius: 14px;
+                padding: 14px;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+                text-align: center;
+            }
+
+            .side-guard.doom {
+                background: linear-gradient(145deg, rgba(30, 8, 8, 0.95), rgba(80, 10, 10, 0.85));
+            }
+
+            .side-guard.duke {
+                background: linear-gradient(145deg, rgba(20, 20, 8, 0.95), rgba(100, 70, 10, 0.82));
+            }
+
+            .side-guard img {
+                width: auto;
+                max-width: 100%;
+                height: auto;
+                max-height: 170px;
+                display: block;
+                margin: 8px auto 10px;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .side-guard h3 {
+                margin: 0 0 8px;
+                color: #ff8f3f;
+                font-size: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .side-guard p {
+                margin: 0;
+                line-height: 1.6;
+                color: #f1d0b0;
+                font-size: 0.9rem;
+            }
+
+            .hell-description h2 {
+                margin-top: 0;
+                margin-bottom: 10px;
+                color: #ff8f3f;
+                font-size: 1.1rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .hell-description p {
+                margin: 0;
+                line-height: 1.7;
+                color: #f2d2b6;
+                font-size: 0.95rem;
+            }
+
+            .fire-strip {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 140px;
+                overflow: hidden;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            .fire-strip img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0.95;
+                display: block;
+            }
+
+            .top-right-link {
+                position: fixed;
+                top: 16px;
+                right: 16px;
+                z-index: 3;
+                color: #ffe0b2;
+                font-weight: bold;
+                text-decoration: none;
+                background: rgba(0, 0, 0, 0.55);
+                padding: 8px 12px;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 140, 0, 0.35);
+            }
+
+            @keyframes flameShift {
+                0% { background-position: 0% 50%; }
+                100% { background-position: 100% 50%; }
+            }
+
+            @keyframes flameFlicker {
+                0%, 100% { transform: skewX(0deg) scale(1); }
+                25% { transform: skewX(-2deg) scale(1.01); }
+                50% { transform: skewX(2deg) scale(0.99); }
+                75% { transform: skewX(-1deg) scale(1.005); }
+            }
+
+            @keyframes flameWobble {
+                0% { transform: translate(1px, 1px); }
+                100% { transform: translate(-1px, -2px); }
+            }
+
+            @keyframes flamePulse {
+                0% { transform: scale(1); opacity: 0.95; }
+                100% { transform: scale(1.01); opacity: 1; }
+            }
+        </style>
+    </head>
+    <body>
+        <a href="Contact.html" class="top-right-link">Back to contact</a>
+
+        <main>
+            <aside class="side-guard doom">
+                <img src="Asset/Doom_Slayer.png" alt="Doom guard">
+                <h3>Doom Slayer</h3>
+                <p>The first guard is a walking nightmare of steel and fury. He does not fear fire, and he does not spare the weak. Every step he takes feels like the end of hope.</p>
+            </aside>
+
+            <div class="hell-box">
+                <h1 class="flame-text" data-text="Welcome to Hell" style="margin-bottom: 10px;">Welcome to Hell</h1>
+                <p class="flame-body" style="line-height: 1.7; margin: 0 0 12px;">
+                    There are no flowers allowed here. This place is very warm, very dark, and very freaky.
+                </p>
+                <p class="flame-body" style="line-height: 1.6; margin: 0 0 16px;">
+                    Only the bravest souls dare to stay for long.
+                </p>
+
+                <div class="partner-grid">
+                    <div class="partner-card">
+                        <img src="Asset/download (3).jpg" alt="McFurry Machine">
+                        <h3>McFurry Machine</h3>
+                        <p>The machine doesn't work. It groans in the dark, but it will never save you from your fate.</p>
+                    </div>
+                    <div class="partner-card">
+                        <img src="Asset/download (2).jpg" alt="Albert Epstein">
+                        <h3>Albert Epstein</h3>
+                        <p>Albert Epstein committed crimes against humanity, like blowing up a circus.</p>
+                    </div>
+                </div>
+
+                <p class="chain-notice">And now these are your jail partners. You must be chained with them for eternity.</p>
+
+            </div>
+
+            <aside class="side-guard duke">
+                <img src="Asset/Duke_Nukem.png" alt="Duke Nukem guard">
+                <h3>Duke Nukem</h3>
+                <p>The second guard prowls the halls like a smug executioner, laughing through the smoke as if death itself were a joke. He leaves behind only ash, panic, and the feeling that you are already doomed.</p>
+            </aside>
+
+            <aside class="hell-description">
+                <h2>What waits below</h2>
+                <p>
+                    Hell is not a place of silence, but of endless roaring fire, suffocating heat, and shadows that seem to breathe. The air is thick with ash and old screams, and every corner hides the memory of a broken promise. Here, the walls pulse with a feverish glow, the ground burns beneath your feet, and the silence between eruptions is colder than the flames themselves. This is a kingdom where hope has been extinguished and every heartbeat feels like a countdown to ruin.
+                </p>
+            </aside>
+        </main>
+
+        <div class="fire-strip">
+            <img src="Asset/fireboy.gif" alt="fire gif">
+        </div>
+    </body>
+</html>
